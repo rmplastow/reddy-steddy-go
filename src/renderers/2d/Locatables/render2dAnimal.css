@@ -1,0 +1,39 @@
+/*
+1. In Chrome, https://editor.method.ac/
+2. Double-click width and height, set both to 50 (becomes 10em)
+3. Zoom to 1600% (bottom right of window)
+4. Select the ‘Path Tool’ (P) and draw
+5. Save to your ‘Downloads’ folder, just in case
+5. ‘View > Source…’, select all, and copy 
+6. In any browser, https://jakearchibald.github.io/svgomg/
+7. Click ‘Paste markup’ and paste the SVG in
+8. Scroll down (two-finger drag on touchpad) to zoom in
+9. Drag ‘precision’ leftwards, but not _too_ far
+10. Click ‘Markup’ and copy contents of `d`
+11. Paste between the double-quotes in `path("...")`
+*/
+
+.Animal .head {
+  width: 10em;
+  height: 10em;
+  clip-path: path(
+    "M49.3 30c.9 12.6-10.2 18.5-19.5 13.5-9.2-5-15.1-5.8-20.4-5C4 39.6 2 42.9 1 35.3c-1-7.7.8-6.9 3.8-6.9-1.3-5 1.3-10.6 1.3-10.6s1.2 7 3.6 9.4c4.1-2.3 8.5-1.3 6.8-6-1.7-4.7 11.7-7.7 11.7-7.6l.2-4.6 2.7 4.1s1.5-3.7 1.4-3.8l1.4 4.5s.1-7.3 9.5-12.2c-.2 8.3 1.7 13.9-3.7 18.8 4.7-.1 9.5 6.6 9.5 9.8z"
+  );
+  transform-origin: 80% 80%;
+
+  /* duration timing-function delay iteration-count direction fill-mode play-state name */
+  animation: 0.5s ease-in-out 0s infinite alternate both paused nod;
+}
+
+.Animal.jogging .head {
+  animation-play-state: running;
+}
+
+@keyframes nod {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-10deg);
+  }
+}

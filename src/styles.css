@@ -1,0 +1,161 @@
+body {
+  font-family: sans-serif;
+  font-size: 5px;
+  background: #222;
+  color: #fff;
+}
+div {
+  position: absolute;
+  background: inherit;
+}
+.Locatable {
+  transition: transform 1s, filter 0.5s;
+  cursor: pointer;
+}
+.Locatable:hover {
+  filter: brightness(120%);
+}
+
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: red;
+  width: 10em;
+  height: 11.547005em;
+}
+
+.hexagon.barrier {
+  background: green;
+}
+.hexagon.door {
+  background: blueviolet;
+  cursor: pointer;
+}
+.hexagon.grass {
+  background: limegreen;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+.hexagon.grass:hover,
+.hexagon.grass.current {
+  background: #9f9;
+}
+
+.avatar {
+  margin: 4em 0 0 3em;
+  transition: left 0.5s, top 0.5s;
+}
+.avatar > div {
+  position: absolute;
+  background: inherit;
+  border-radius: 0.5em;
+}
+.avatar .head {
+  width: 2em;
+  height: 2em;
+  left: 1em;
+  top: -2em;
+}
+.avatar .torso {
+  width: 4em;
+  height: 3em;
+}
+.avatar .leg {
+  width: 1.5em;
+  height: 3em;
+  top: 2em;
+}
+.avatar .left.leg {
+  left: 0.5em;
+}
+.avatar .right.leg {
+  left: 2em;
+}
+.avatar.running .left.leg {
+  animation: 0.25s infinite alternate ease-in-out leg-cycle;
+}
+.avatar.running .right.leg {
+  animation: 0.25s infinite alternate ease-in-out 0.25s leg-cycle;
+}
+@keyframes leg-cycle {
+  from {
+    top: 1.5em;
+  }
+  to {
+    top: 2em;
+  }
+}
+
+.character {
+  margin: 4em 0 0 3em;
+  cursor: pointer;
+  transition: opacity 5s;
+}
+.character:hover {
+  opacity: 0.5;
+}
+.character > div {
+  position: absolute;
+  background: inherit;
+  border-radius: 1em;
+}
+.character .head {
+  width: 2em;
+  height: 2em;
+  left: 1em;
+  top: -2em;
+}
+.character .torso {
+  width: 4em;
+  height: 4em;
+}
+.character .leg {
+  width: 1.5em;
+  height: 3em;
+  top: 2em;
+}
+.character .left.leg {
+  left: 0.5em;
+}
+.character .right.leg {
+  left: 2em;
+}
+
+#scene {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 10px;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+#messages {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 320px;
+  box-sizing: border-box;
+  padding: 0 1em;
+  border: 2px solid white;
+  overflow-y: scroll;
+}
+
+#messages button {
+  margin-top: 1em;
+}
+#messages p {
+  font-size: 2em;
+  animation: both 1s ease-in-out 2s message;
+}
+#messages a {
+  color: #0ff;
+}
+
+@keyframes message {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
